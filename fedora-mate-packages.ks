@@ -20,6 +20,7 @@ fusion-icon
 fusion-icon-gtk
 @libreoffice
 @networkmanager-submodules
+blueman
 
 # FIXME; apparently the glibc maintainers dislike this, but it got put into the
 # desktop image at some point.  We won't touch this one for now.

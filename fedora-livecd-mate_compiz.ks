@@ -40,8 +40,6 @@ PackageKit-gstreamer-plugin
 # Drop things for size
 -@3d-printing
 -brasero
--bluez
--bluez-cups
 -colord
 -fedora-icon-theme
 -GConf2
