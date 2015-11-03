@@ -37,6 +37,11 @@ bzip2
 xz
 man
 
+# Development
+glibc-devel
+glibc-headers
+gcc
+
 # multimedia
 alsa-utils
 pulseaudio
@@ -51,10 +56,14 @@ openssh
 openssh-clients
 openssh-server
 NetworkManager
+NetworkManager-wifi
+NetworkManager-bluetooth
 dhclient
 iputils
 wireless-tools
 rfkill
+avahi
+avahi-tools
 
 # protocol
 mosquitto
@@ -65,13 +74,14 @@ procps-ng
 java-1.8.0-openjdk
 i2c-tools
 usbutils
+wget
+python-dbus
 
 # rpmfusion
 ffmpeg-libs
 ffmpeg
 mplayer
 rpmfusion-free-release
-motion
 
 %end
 
@@ -91,14 +101,11 @@ ln -s /lib/systemd/system/multi-user.target /etc/systemd/system/default.target
 echo .
 
 echo "Cleaning old dnf repodata."
-# FIXME: clear history?
-dnf clean all
-truncate -c -s 0 /var/log/dnf.log
-truncate -c -s 0 /var/log/dnf.rpm.log
 
 echo "Import RPM GPG key"
+rm -f /var/lib/rpm/__db*
 releasever=$(rpm -q --qf '%{version}\n' fedora-release)
-basearch=$(uname -i)
+basearch=armhfp
 rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
 
 # Note that running rpm recreates the rpm db files which aren't needed/wanted
@@ -128,15 +135,12 @@ systemctl enable bluetooth.service
 cat > /usr/lib/systemd/system/rfkill-unblock.service << EOF
 [Unit]
 Description=RFKill-Unblock All Devices
-ConditionPathExists=!/var/lib/rfkill-unblock-done
-After=bluetooth.service
-Requires=bluetooth.service
+After=systemd-rfkill@.service
+Before=bluetooth.service
 
 [Service]
 Type=oneshot
 ExecStart=/usr/sbin/rfkill unblock all
-ExecStartPost=/usr/bin/touch /var/lib/rfkill-unblock-done
-RemainAfterExit=yes
 
 [Install]
 WantedBy=multi-user.target
@@ -191,13 +195,13 @@ cat > /usr/lib/systemd/system/audiosetting.service << EOF
 [Unit]
 Description=alsa audio setting
 After=alsa-state.service
-ConditionPathExists=!/var/lib/alsa-config-done
+ConditionPathExists=!/var/lib/alsa/asound.state
 
 [Service]
 Type=oneshot
 RemainAfterExit=yes
 ExecStart=/usr/bin/audio_setting.sh
-ExecStartPost=/usr/bin/touch /var/lib/alsa-config-done
+ExecStartPost=/usr/bin/systemctl restart alsa-state.service
 
 [Install]
 WantedBy=multi-user.target
@@ -227,7 +231,7 @@ EOF
 cat > /usr/lib/systemd/system/brcm-firmware.service << EOF
 [Unit]
 Description=BCM4354 Bluetooth firmware service
-After=bluetooth.target
+Before=bluetooth.target
 
 [Service]
 Type=forking
@@ -240,7 +244,7 @@ EOF
 
 # auto-load hci0 firmware
 cat > /etc/udev/rules.d/10-local.rules << EOF
-ACTION=="add", KERNEL=="hci0", RUN+="/usr/bin/hciconfig hci0 up"
+ACTION=="add", KERNEL=="hci0", RUN+="/etc/bluetooth/hciconf.sh"
 EOF
 
 systemctl daemon-reload
@@ -259,6 +263,12 @@ PIDFILE=/run/adbd.pid
 [Install]
 WantedBy=multi-user.target
 EOF
+
+# Enable timesyncd
+systemctl enable systemd-timesyncd.service
+
+# Enable systemd-resolved.service
+systemctl enable systemd-resolved.service
 
 %end
 
