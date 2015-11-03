@@ -64,6 +64,8 @@ wireless-tools
 rfkill
 avahi
 avahi-tools
+hostapd
+bridge-utils
 
 # protocol
 mosquitto
@@ -276,4 +278,5 @@ systemctl enable systemd-resolved.service
 cp -rf prebuilt/wifi/* $INSTALL_ROOT
 cp -rf prebuilt/bluetooth/* $INSTALL_ROOT
 cp -rf prebuilt/adbd/* $INSTALL_ROOT
+cp -rf prebuilt/openssl/* $INSTALL_ROOT
 %end
