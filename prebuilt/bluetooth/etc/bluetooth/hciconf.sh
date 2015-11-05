@@ -1,4 +1,4 @@
 #!/bin/sh
 
-sleep 2
+sleep 4
 hciconfig hci0 up
