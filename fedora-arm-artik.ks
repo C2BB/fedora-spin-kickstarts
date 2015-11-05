@@ -73,7 +73,6 @@ mosquitto
 # utility
 vim-minimal
 procps-ng
-java-1.8.0-openjdk
 i2c-tools
 usbutils
 wget
@@ -85,6 +84,14 @@ ffmpeg
 mplayer
 rpmfusion-free-release
 
+%end
+
+%post --nochroot
+echo "Install oracle jdk"
+mkdir -p $INSTALL_ROOT/usr/java
+tar xf prebuilt/oracle_jdk/jdk*.gz -C $INSTALL_ROOT/usr/java/
+cd $INSTALL_ROOT/usr/java
+ln -sf jdk* default
 %end
 
 %post
@@ -271,6 +278,18 @@ systemctl enable systemd-timesyncd.service
 
 # Enable systemd-resolved.service
 systemctl enable systemd-resolved.service
+
+# Install java alternatives
+/usr/sbin/alternatives --install /usr/bin/java java /usr/java/default/jre/bin/java 1
+/usr/sbin/alternatives --install /usr/bin/javaws javaws /usr/java/default/jre/bin/javaws 1
+/usr/sbin/alternatives --install /usr/bin/javac javac /usr/java/default/bin/javac 1
+/usr/sbin/alternatives --install /usr/bin/jar jar /usr/java/default/bin/jar 1
+
+cat > /etc/profile.d/oracle-jdk.sh << EOF
+export JAVA_HOME=/usr/java/default
+export PATH=\$JAVA_HOME/bin:\$PATH
+EOF
+chmod +x /etc/profile.d/oracle-jdk.sh
 
 %end
 
