@@ -69,6 +69,7 @@ bridge-utils
 
 # protocol
 mosquitto
+nodejs
 
 # utility
 vim-minimal
