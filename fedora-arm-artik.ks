@@ -246,7 +246,7 @@ Before=bluetooth.target
 [Service]
 Type=forking
 ExecStart=/etc/bluetooth/fwdown.sh
-PIDFILE=/run/brcm_patchram_plus.pid
+PIDFile=/run/brcm_patchram_plus.pid
 
 [Install]
 WantedBy=multi-user.target
@@ -268,7 +268,7 @@ Descriptions=Android debug bridge daemon
 [Service]
 Type=forking
 ExecStart=/usr/bin/start_adbd.sh
-PIDFILE=/run/adbd.pid
+PIDFile=/run/adbd.pid
 
 [Install]
 WantedBy=multi-user.target
