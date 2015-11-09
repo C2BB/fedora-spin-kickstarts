@@ -1,5 +1,19 @@
 #!/bin/sh
 
+function gen_bd_addr {
+        [ -d /opt/.bd_addr ] || rm -f /opt/.bd_addr
+        [ -d /etc/bluetooth/main.conf ] || rm -f /etc/bluetooth/main.conf
+
+        macaddr=$(dd if=/dev/urandom bs=1024 count=1 2>/dev/null|md5sum|sed 's/^\(..\)\(..\)\(..\)\(..\)\(..\)\(..\).*$/\1:\2:\3:\4:\5:\6/')
+        echo $macaddr > /opt/.bd_addr
+        chmod 400 /opt/.bd_addr
+cat > /etc/bluetooth/main.conf << EOF
+[General]
+Name = $1
+EOF
+        sync
+}
+
 ARTIK5=`cat /proc/cpuinfo | grep -i EXYNOS3`
 
 if [ "$ARTIK5" != "" ]; then
@@ -11,16 +25,14 @@ else
 fi
 
 if [ ! -f "/opt/.bd_addr" ]; then
-	macaddr=$(dd if=/dev/urandom bs=1024 count=1 2>/dev/null|md5sum|sed 's/^\(..\)\(..\)\(..\)\(..\)\(..\)\(..\).*$/\1:\2:\3:\4:\5:\6/')
-        echo $macaddr > /opt/.bd_addr
-        chmod 400 /opt/.bd_addr
-cat > /etc/bluetooth/main.conf << EOF
-[General]
-Name = ${ARTIK_DEV}
-EOF
+        gen_bd_addr ${ARTIK_DEV}
 fi
 
 BD_ADDR=`cat /opt/.bd_addr`
+if [ "$BD_ADDR" == "" ]; then
+        gen_bd_addr ${ARTIK_DEV}
+        BD_ADDR=`cat /opt/.bd_addr`
+fi
 
 pushd `dirname $0`
 
