@@ -41,6 +41,7 @@ man
 glibc-devel
 glibc-headers
 gcc
+gcc-c++
 
 # multimedia
 alsa-utils
