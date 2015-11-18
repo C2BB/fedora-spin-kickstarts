@@ -4,7 +4,7 @@ function gen_bd_addr {
         [ -d /opt/.bd_addr ] || rm -f /opt/.bd_addr
         [ -d /etc/bluetooth/main.conf ] || rm -f /etc/bluetooth/main.conf
 
-        macaddr=$(dd if=/dev/urandom bs=1024 count=1 2>/dev/null|md5sum|sed 's/^\(..\)\(..\)\(..\)\(..\)\(..\)\(..\).*$/\1:\2:\3:\4:\5:\6/')
+        macaddr=$(dd if=/dev/urandom bs=1024 count=1 2>/dev/null|md5sum|sed 's/^\(..\)\(..\)\(..\)\(..\)\(..\).*$/00:\1:\2:\3:\4:\5/')
         echo $macaddr > /opt/.bd_addr
         chmod 400 /opt/.bd_addr
 cat > /etc/bluetooth/main.conf << EOF
