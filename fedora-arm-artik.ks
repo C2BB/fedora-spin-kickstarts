@@ -70,7 +70,10 @@ bridge-utils
 
 # protocol
 mosquitto
+
+# Web
 nodejs
+npm
 
 # utility
 vim-minimal
