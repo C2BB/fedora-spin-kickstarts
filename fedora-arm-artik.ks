@@ -5,7 +5,7 @@ bootloader --disabled
 cmdline
 rootpw root
 
-part / --size=3000 --label=rootfs --fstype ext4
+part / --size=1200 --label=rootfs --fstype ext4
 
 services --enabled=ssh,NetworkManager --disabled=network
 
@@ -36,6 +36,7 @@ findutils
 bzip2
 xz
 man
+newt
 
 # Development
 glibc-devel
@@ -48,17 +49,18 @@ alsa-utils
 pulseaudio
 pulseaudio-utils
 
+# graphics
+libdrm
+drm-utils
+
 # network
 net-tools
-bluez
-pulseaudio-module-bluetooth
 wpa_supplicant
 openssh
 openssh-clients
 openssh-server
 NetworkManager
 NetworkManager-wifi
-NetworkManager-bluetooth
 dhclient
 iputils
 wireless-tools
@@ -67,13 +69,14 @@ avahi
 avahi-tools
 hostapd
 bridge-utils
-
-# protocol
-mosquitto
+nss-mdns
+iptables-services
+libical
+sbc
+connman
 
 # Web
 nodejs
-npm
 
 # utility
 vim-minimal
@@ -85,13 +88,15 @@ python-dbus
 
 # rpmfusion
 ffmpeg-libs
-ffmpeg
 mplayer
 rpmfusion-free-release
 
 %end
 
 %post --nochroot
+cp prebuilt/bluez/*.rpm $INSTALL_ROOT
+cp prebuilt/artik-config/*.rpm $INSTALL_ROOT
+
 echo "Install oracle jdk"
 mkdir -p $INSTALL_ROOT/usr/java
 tar xf prebuilt/oracle_jdk/jdk*.gz -C $INSTALL_ROOT/usr/java/
@@ -100,6 +105,10 @@ ln -sf jdk* default
 %end
 
 %post
+
+# downgrade bluez
+rpm -ivh --force --nodeps /*.rpm
+rm -f /*.rpm
 
 # fstab
 rm /etc/fstab
@@ -121,6 +130,8 @@ rm -f /var/lib/rpm/__db*
 releasever=$(rpm -q --qf '%{version}\n' fedora-release)
 basearch=armhfp
 rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+
+rpm -qa
 
 # Note that running rpm recreates the rpm db files which aren't needed/wanted
 rm -f /var/lib/rpm/__db*
@@ -226,7 +237,7 @@ systemctl enable audiosetting.service
 
 # pulseaudio settings for bluetooth a2dp_sink
 set -i '/<allow own="org.pulseaudio.Server"\/>/a \ \ \ \ <allow send_interface="org.freedesktop.DBus.ObjectManager"/>' /etc/dbus-1/system.d/pulseaudio-system.conf
-sed -i '/<allow own="org.pulseaudio.Server"\/>/a \ \ \ \ <allow send_interface="org.freedesktop.DBus.ObjectManager"/>' /etc/dbus-1/system.d/pulseaudio-system.conf
+sed -i '/<allow own="org.pulseaudio.Server"\/>/a \ \ \ \ <allow send_destination="org.bluez"/>' /etc/dbus-1/system.d/pulseaudio-system.conf
 
 sed -i '/<\/busconfig>/i \ \ <policy user="pulse">\n\ \ \ \ <allow send_destination="org.bluez"/>\n\ \ \ \ <allow send_interface="org.freedesktop.DBus.ObjectManager"/>\n\ \ <\/policy>\n'  /etc/dbus-1/system.d/bluetooth.conf
 
@@ -295,6 +306,9 @@ export JAVA_HOME=/usr/java/default
 export PATH=\$JAVA_HOME/bin:\$PATH
 EOF
 chmod +x /etc/profile.d/oracle-jdk.sh
+
+# Sync after sshd key generation
+echo "ExecStartPost=/usr/bin/sync" >> /usr/lib/systemd/system/sshd-keygen.service
 
 %end
 
