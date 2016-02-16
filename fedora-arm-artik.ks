@@ -220,13 +220,14 @@ cat > /usr/lib/systemd/system/audiosetting.service << EOF
 [Unit]
 Description=alsa audio setting
 After=alsa-state.service
-ConditionPathExists=!/var/lib/alsa/asound.state
+ConditionFileNotEmpty=!/var/lib/alsa/asound.state
 
 [Service]
 Type=oneshot
 RemainAfterExit=yes
 ExecStart=/usr/bin/audio_setting.sh
 ExecStartPost=/usr/bin/systemctl restart alsa-state.service
+ExecStartPost=/usr/bin/sync
 
 [Install]
 WantedBy=multi-user.target
