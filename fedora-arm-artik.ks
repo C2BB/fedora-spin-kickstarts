@@ -7,7 +7,7 @@ rootpw root
 
 part / --size=1200 --label=rootfs --fstype ext4
 
-services --enabled=ssh,NetworkManager --disabled=network
+services --enabled=ssh --disabled=network
 
 %include fedora-repo.ks
 repo --name=rpmfusion-free --mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=free-fedora-$releasever&arch=$basearch
@@ -59,8 +59,6 @@ wpa_supplicant
 openssh
 openssh-clients
 openssh-server
-NetworkManager
-NetworkManager-wifi
 dhclient
 iputils
 wireless-tools
@@ -73,7 +71,6 @@ nss-mdns
 iptables-services
 libical
 sbc
-connman
 
 # Web
 nodejs
@@ -96,6 +93,7 @@ rpmfusion-free-release
 %post --nochroot
 cp prebuilt/bluez/*.rpm $INSTALL_ROOT
 cp prebuilt/artik-config/*.rpm $INSTALL_ROOT
+cp prebuilt/connman/*.rpm $INSTALL_ROOT
 
 echo "Install oracle jdk"
 mkdir -p $INSTALL_ROOT/usr/java
@@ -319,4 +317,6 @@ cp -rf prebuilt/bluetooth/* $INSTALL_ROOT
 cp -rf prebuilt/adbd/* $INSTALL_ROOT
 cp -rf prebuilt/openssl/* $INSTALL_ROOT
 cp -rf prebuilt/domainManager/* $INSTALL_ROOT
+cp -rf prebuilt/connman/var $INSTALL_ROOT
+cp -rf prebuilt/connman/etc $INSTALL_ROOT
 %end
