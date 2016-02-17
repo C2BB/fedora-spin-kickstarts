@@ -43,6 +43,8 @@ glibc-devel
 glibc-headers
 gcc
 gcc-c++
+pygobject2
+python-dbus
 
 # multimedia
 alsa-utils
