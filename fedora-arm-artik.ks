@@ -45,6 +45,8 @@ gcc
 gcc-c++
 pygobject2
 python-dbus
+json-c
+dbus-python
 
 # multimedia
 alsa-utils
