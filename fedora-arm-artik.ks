@@ -56,6 +56,7 @@ pulseaudio-utils
 # graphics
 libdrm
 drm-utils
+fbida
 
 # network
 net-tools
