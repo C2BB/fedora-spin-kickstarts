@@ -311,6 +311,7 @@ chmod +x /etc/profile.d/oracle-jdk.sh
 
 # Sync after sshd key generation
 echo "ExecStartPost=/usr/bin/sync" >> /usr/lib/systemd/system/sshd-keygen.service
+sed -i 's/ConditionPathExists/ConditionFileNotEmpty/g' /usr/lib/systemd/system/sshd-keygen.service
 
 %end
 
