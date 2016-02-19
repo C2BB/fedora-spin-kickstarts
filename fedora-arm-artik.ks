@@ -48,10 +48,21 @@ python-dbus
 json-c
 dbus-python
 
+# Library
+glib2
+
 # multimedia
 alsa-utils
 pulseaudio
 pulseaudio-utils
+gstreamer-plugins-base
+gstreamer-plugins-base-tools
+gstreamer-plugins-good
+gstreamer-plugins-bad
+gstreamer-plugins-ugly
+gstreamer-rtsp
+gstreamer
+gstreamer-tools
 
 # graphics
 libdrm
