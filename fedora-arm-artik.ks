@@ -76,6 +76,7 @@ nss-mdns
 iptables-services
 libical
 sbc
+dnsmasq
 
 # Web
 nodejs
@@ -302,6 +303,9 @@ systemctl enable systemd-resolved.service
 
 # Enable connman.service
 systemctl enable connman.service
+
+# Dnsmasq setting
+sed -i 's/\#except-interface=/except-interface=lo/g'  /etc/dnsmasq.conf
 
 # Install java alternatives
 /usr/sbin/alternatives --install /usr/bin/java java /usr/java/default/jre/bin/java 1
