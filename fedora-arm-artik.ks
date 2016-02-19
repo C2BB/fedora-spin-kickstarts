@@ -300,6 +300,9 @@ systemctl enable systemd-timesyncd.service
 # Enable systemd-resolved.service
 systemctl enable systemd-resolved.service
 
+# Enable connman.service
+systemctl enable connman.service
+
 # Install java alternatives
 /usr/sbin/alternatives --install /usr/bin/java java /usr/java/default/jre/bin/java 1
 /usr/sbin/alternatives --install /usr/bin/javaws javaws /usr/java/default/jre/bin/javaws 1
