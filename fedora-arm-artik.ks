@@ -101,6 +101,7 @@ cp prebuilt/bluez/*.rpm $INSTALL_ROOT
 cp prebuilt/artik-config/*.rpm $INSTALL_ROOT
 cp prebuilt/connman/*.rpm $INSTALL_ROOT
 cp prebuilt/obexftp/*.rpm $INSTALL_ROOT
+cp prebuilt/omxil/*.rpm $INSTALL_ROOT
 
 echo "Install oracle jdk"
 mkdir -p $INSTALL_ROOT/usr/java
