@@ -47,6 +47,7 @@ pygobject2
 python-dbus
 json-c
 dbus-python
+opencv-devel
 
 # Library
 glib2
