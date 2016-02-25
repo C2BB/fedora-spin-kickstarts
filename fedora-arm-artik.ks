@@ -69,6 +69,7 @@ gstreamer-tools
 libdrm
 drm-utils
 fbida
+evtest
 
 # network
 net-tools
