@@ -159,9 +159,9 @@ btc_params8=45000
 #cckdigfilttype=1
 ## muxenab to enable OOB signal - needed for final board
 muxenab=0x10
-sd_oobonly=1
-sd_gpout=0
-sd_gpval=1
+#sd_oobonly=1
+#sd_gpout=0
+#sd_gpval=1
 #ltecxmux=0x534201
 epsdelta2g0=0
 epsdelta2g1=0
