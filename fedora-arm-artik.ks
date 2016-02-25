@@ -89,6 +89,7 @@ iptables-services
 libical
 sbc
 dnsmasq
+openobex
 
 # Web
 nodejs
