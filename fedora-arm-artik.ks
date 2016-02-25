@@ -91,6 +91,7 @@ libical
 sbc
 dnsmasq
 openobex
+iperf3
 
 # Web
 nodejs
