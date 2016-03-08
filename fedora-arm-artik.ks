@@ -152,7 +152,7 @@ releasever=$(rpm -q --qf '%{version}\n' fedora-release)
 basearch=armhfp
 rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
 
-rpm -qa
+rpm -qa | sort
 
 # Note that running rpm recreates the rpm db files which aren't needed/wanted
 rm -f /var/lib/rpm/__db*
