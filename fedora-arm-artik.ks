@@ -37,6 +37,8 @@ bzip2
 xz
 man
 newt
+mariadb
+mariadb-server
 
 # Development
 glibc-devel
@@ -319,6 +321,9 @@ systemctl enable systemd-resolved.service
 
 # Enable connman.service
 systemctl enable connman.service
+
+# Enable mariadb.service
+systemctl enable mariadb.service
 
 # Dnsmasq setting
 sed -i 's/\#except-interface=/except-interface=lo/g'  /etc/dnsmasq.conf
