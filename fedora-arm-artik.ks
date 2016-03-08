@@ -346,7 +346,6 @@ cp -rf prebuilt/wifi/* $INSTALL_ROOT
 cp -rf prebuilt/bluetooth/* $INSTALL_ROOT
 cp -rf prebuilt/adbd/* $INSTALL_ROOT
 cp -rf prebuilt/openssl/* $INSTALL_ROOT
-cp -rf prebuilt/domainManager/* $INSTALL_ROOT
 cp -rf prebuilt/connman/var $INSTALL_ROOT
 cp -rf prebuilt/connman/etc $INSTALL_ROOT
 %end
