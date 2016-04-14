@@ -119,15 +119,11 @@ cp prebuilt/artik-config/*.rpm $INSTALL_ROOT
 cp prebuilt/connman/*.rpm $INSTALL_ROOT
 cp prebuilt/obexftp/*.rpm $INSTALL_ROOT
 cp prebuilt/omxil/*.rpm $INSTALL_ROOT
+cp prebuilt/open_jdk/*.rpm $INSTALL_ROOT
 
 mkdir -p $INSTALL_ROOT/artik-plugin
 cp prebuilt/artik-plugin/*.rpm $INSTALL_ROOT/artik-plugin
 
-echo "Install oracle jdk"
-mkdir -p $INSTALL_ROOT/usr/java
-tar xf prebuilt/oracle_jdk/jdk*.gz -C $INSTALL_ROOT/usr/java/
-cd $INSTALL_ROOT/usr/java
-ln -sf jdk* default
 %end
 
 %post
