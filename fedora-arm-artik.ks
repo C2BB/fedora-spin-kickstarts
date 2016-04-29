@@ -94,6 +94,7 @@ sbc
 dnsmasq
 openobex
 iperf3
+connman
 
 # Web
 nodejs
@@ -116,7 +117,6 @@ rpmfusion-free-release
 %post --nochroot
 cp prebuilt/bluez/*.rpm $INSTALL_ROOT
 cp prebuilt/artik-config/*.rpm $INSTALL_ROOT
-cp prebuilt/connman/*.rpm $INSTALL_ROOT
 cp prebuilt/obexftp/*.rpm $INSTALL_ROOT
 cp prebuilt/omxil/*.rpm $INSTALL_ROOT
 cp prebuilt/open_jdk/*.rpm $INSTALL_ROOT
