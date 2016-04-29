@@ -95,6 +95,7 @@ dnsmasq
 openobex
 iperf3
 connman
+mosquitto
 
 # Web
 nodejs
@@ -120,7 +121,6 @@ cp prebuilt/artik-config/*.rpm $INSTALL_ROOT
 cp prebuilt/obexftp/*.rpm $INSTALL_ROOT
 cp prebuilt/omxil/*.rpm $INSTALL_ROOT
 cp prebuilt/open_jdk/*.rpm $INSTALL_ROOT
-cp prebuilt/mptt/*.rpm $INSTALL_ROOT
 
 mkdir -p $INSTALL_ROOT/artik-plugin
 cp prebuilt/artik-plugin/*.rpm $INSTALL_ROOT/artik-plugin
