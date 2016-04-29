@@ -39,6 +39,7 @@ man
 newt
 mariadb
 mariadb-server
+java-1.8.0-openjdk
 
 # Development
 glibc-devel
@@ -120,7 +121,6 @@ cp prebuilt/bluez/*.rpm $INSTALL_ROOT
 cp prebuilt/artik-config/*.rpm $INSTALL_ROOT
 cp prebuilt/obexftp/*.rpm $INSTALL_ROOT
 cp prebuilt/omxil/*.rpm $INSTALL_ROOT
-cp prebuilt/open_jdk/*.rpm $INSTALL_ROOT
 
 mkdir -p $INSTALL_ROOT/artik-plugin
 cp prebuilt/artik-plugin/*.rpm $INSTALL_ROOT/artik-plugin
