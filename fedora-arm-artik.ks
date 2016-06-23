@@ -39,6 +39,8 @@ xz
 man
 newt
 java-1.8.0-openjdk
+terminus-fonts-console
+glibc-all-langpacks
 
 # Development
 glibc-devel
@@ -124,6 +126,7 @@ artik-plugin-usb-common
 bluez
 bluez-hid2hci
 bluez-libs
+bluez-obexd
 obexftp
 obexftp-libs
 pulseaudio-module-bluetooth
