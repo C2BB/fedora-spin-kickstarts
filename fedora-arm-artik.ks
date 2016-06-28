@@ -93,6 +93,11 @@ iperf3
 connman
 mosquitto
 
+srcx-mqtt
+srcx-mqttsnclient
+srcx-securitycoap
+wakaama
+
 # Web
 nodejs
 
