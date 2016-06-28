@@ -24,5 +24,6 @@ artik-plugin-artik710-fstab
 artik-plugin-artik710-audio
 artik-plugin-artik710-wifi
 artik-plugin-artik710-usb
+artik-plugin-artik710-zigbee
 
 %end
