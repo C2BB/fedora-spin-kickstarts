@@ -93,6 +93,7 @@ iperf3
 connman
 mosquitto
 
+iotivity
 srcx-mqtt
 srcx-mqttsnclient
 srcx-securitycoap
