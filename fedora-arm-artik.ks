@@ -54,6 +54,7 @@ dbus-python
 opencv-devel
 strace
 gdb
+tcpdump
 
 # Library
 glib2
@@ -121,6 +122,7 @@ artik-plugin-network-common
 artik-plugin-audio-common
 artik-plugin-usb-common
 artik-plugin-zigbee-common
+artik-plugin-wifi-common
 
 bluez
 bluez-hid2hci
