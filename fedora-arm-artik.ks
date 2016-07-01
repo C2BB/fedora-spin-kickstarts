@@ -37,7 +37,6 @@ findutils
 bzip2
 xz
 man
-newt
 java-1.8.0-openjdk
 terminus-fonts-console
 glibc-all-langpacks
