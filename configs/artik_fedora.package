@@ -11,6 +11,7 @@ gst-plugins-camera-s5p6818
 gst-plugins-video-dec
 gst-plugins-video-enc
 gst-plugins-video-sink
+sbc
 bluez
 artik-plugin
 artik-plugin-artik710
