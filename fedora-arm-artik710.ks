@@ -5,7 +5,6 @@
 gstreamer1-plugins-base
 gstreamer1-plugins-good
 gstreamer1-plugins-bad-free
-gstreamer1-libav
 
 gst-plugins-camera-s5p6818
 gst-plugins-renderer
