@@ -18,6 +18,7 @@ nx-renderer
 nx-scaler
 nx-v4l2
 nx-video-api
+nx-gst-meta
 
 artik-plugin-artik530-bluetooth
 artik-plugin-artik530-fstab
