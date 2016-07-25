@@ -28,4 +28,6 @@ artik-plugin-artik710-usb
 artik-plugin-artik710-zigbee
 artik-plugin-artik710-security
 
+TomyGateway
+
 %end
