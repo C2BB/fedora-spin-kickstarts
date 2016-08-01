@@ -94,9 +94,8 @@ connman
 mosquitto
 
 iotivity
-srcx-mqtt
-srcx-mqttsnclient
-srcx-securitycoap
+iotivity-service
+iotivity-test
 wakaama
 
 # Web
