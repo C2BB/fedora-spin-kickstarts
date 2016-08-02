@@ -119,8 +119,11 @@ artik-plugin-bluetooth-common
 artik-plugin-network-common
 artik-plugin-audio-common
 artik-plugin-usb-common
-artik-plugin-zigbee-common
 artik-plugin-wifi-common
+
+zigbeed
+libartik-sdk-base
+libartik-sdk-zigbee
 
 bluez
 bluez-hid2hci
