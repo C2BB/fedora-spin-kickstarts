@@ -97,6 +97,8 @@ iotivity
 iotivity-service
 iotivity-test
 wakaama
+libcoap
+mqttsn
 
 # Web
 nodejs
