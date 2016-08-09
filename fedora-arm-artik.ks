@@ -117,6 +117,7 @@ mplayer
 rpmfusion-free-release
 
 artik-plugin
+artik-plugin-license
 artik-plugin-bluetooth-common
 artik-plugin-network-common
 artik-plugin-audio-common
