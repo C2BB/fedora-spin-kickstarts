@@ -27,4 +27,6 @@ artik-plugin-artik530-wifi
 artik-plugin-artik530-usb
 artik-plugin-artik530-security
 
+TomyGateway
+
 %end
