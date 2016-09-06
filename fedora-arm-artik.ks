@@ -136,7 +136,6 @@ obexftp
 obexftp-libs
 pulseaudio-module-bluetooth
 
-libartik-base
 libartik-security
 
 %end
