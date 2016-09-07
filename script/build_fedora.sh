@@ -106,6 +106,8 @@ if ! $SKIP_BUILD; then
 	done
 fi
 
+fed-artik-creator --copy-rpm-dir $KICKSTART_DIR/prebuilt
+
 if [ "$FEDORA_NAME" != "" ]; then
 	fed-artik-creator --copy-kickstart-dir $KICKSTART_DIR \
 		--ks-file $KICKSTART_DIR/$KICKSTART_FILE -o $TARGET_DIR \
