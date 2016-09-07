@@ -26,6 +26,7 @@ artik-plugin-artik530-audio
 artik-plugin-artik530-wifi
 artik-plugin-artik530-usb
 artik-plugin-artik530-security
+artik-plugin-artik530-zram
 
 TomyGateway
 
