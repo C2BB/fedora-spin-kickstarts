@@ -151,6 +151,8 @@ releasever=$(rpm -q --qf '%{version}\n' fedora-release)
 basearch=armhfp
 rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
 
+sed -i 's/^metalink.*/&\nexclude=bluez*,libdrm,sbc/' /etc/yum.repos.d/fedora-updates.repo
+
 rpm -qa | sort
 
 # Note that running rpm recreates the rpm db files which aren't needed/wanted
