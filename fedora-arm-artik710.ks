@@ -20,6 +20,8 @@ nx-v4l2
 nx-video-api
 nx-gst-meta
 
+libartik-security
+
 artik-plugin-artik710-bluetooth
 artik-plugin-artik710-fstab
 artik-plugin-artik710-audio

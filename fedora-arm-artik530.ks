@@ -20,6 +20,8 @@ nx-v4l2
 nx-video-api
 nx-gst-meta
 
+libartik-security
+
 artik-plugin-artik530-bluetooth
 artik-plugin-artik530-fstab
 artik-plugin-artik530-audio

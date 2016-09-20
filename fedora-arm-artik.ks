@@ -135,8 +135,6 @@ obexftp
 obexftp-libs
 pulseaudio-module-bluetooth
 
-libartik-security
-
 %end
 
 %post --nochroot
