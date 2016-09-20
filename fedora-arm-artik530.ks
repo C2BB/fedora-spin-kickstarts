@@ -30,5 +30,6 @@ artik-plugin-artik530-zram
 artik-plugin-artik530-zigbee
 
 TomyGateway
+mqttsn
 
 %end

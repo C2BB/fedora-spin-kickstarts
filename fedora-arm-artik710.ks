@@ -30,5 +30,6 @@ artik-plugin-artik710-security
 artik-plugin-artik710-license
 
 TomyGateway
+mqttsn
 
 %end
