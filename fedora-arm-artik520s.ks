@@ -2,8 +2,6 @@
 
 %packages
 
-libartik-base
-libartik-security
 security-b2b
 
 %end
