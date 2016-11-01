@@ -135,6 +135,8 @@ obexftp
 obexftp-libs
 pulseaudio-module-bluetooth
 
+artik-repos
+
 %end
 
 %post --nochroot
