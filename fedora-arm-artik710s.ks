@@ -2,6 +2,6 @@
 
 %packages
 
-security-b2b
+security-b2b-artik710s
 
 %end
