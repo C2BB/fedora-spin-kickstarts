@@ -10,7 +10,7 @@ part / --size=2000 --label=rootfs --fstype ext4
 services --enabled=ssh --disabled=network
 
 repo --name=fedora --baseurl=http://download.fedoraproject.org/pub/fedora/linux/releases/$releasever/Everything/$basearch/os/
-repo --name=updates --baseurl=http://download.fedoraproject.org/pub/fedora/linux/updates/$releasever/$basearch/ --excludepkgs=bluez*,openssl,wpa_supplicant,curl,libdrm,sbc,drm-utils
+repo --name=updates --baseurl=http://download.fedoraproject.org/pub/fedora/linux/updates/$releasever/$basearch/ --excludepkgs=bluez*,openssl,wpa_supplicant,curl,libdrm*,sbc,drm-utils
 repo --name=rpmfusion-free --baseurl=http://download1.rpmfusion.org/free/fedora/releases/$releasever/Everything/$basearch/os/
 repo --name=rpmfusion-free-updates --baseurl=http://download1.rpmfusion.org/free/fedora/updates/$releasever/$basearch/
 
@@ -150,7 +150,7 @@ releasever=$(rpm -q --qf '%{version}\n' fedora-release)
 basearch=armhfp
 rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
 
-sed -i 's/^metalink.*/&\nexclude=bluez*,libdrm,sbc,openssl*,curl*,wpa_supplicant/' /etc/yum.repos.d/fedora-updates.repo
+sed -i 's/^metalink.*/&\nexclude=bluez*,libdrm*,sbc,openssl*,curl*,wpa_supplicant/' /etc/yum.repos.d/fedora-updates.repo
 
 rpm -qa | sort
 
