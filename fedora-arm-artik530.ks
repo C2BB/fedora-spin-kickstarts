@@ -20,7 +20,7 @@ nx-v4l2
 nx-video-api
 nx-gst-meta
 
-libsee-linux-ssafelite
+libsee-linux
 libartik-security
 
 artik-plugin-artik530-bluetooth
