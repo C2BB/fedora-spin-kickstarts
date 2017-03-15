@@ -1,6 +1,9 @@
 %include fedora-arm-artik.ks
 
 %packages
+libsee-linux
+libartik-security
+
 artik-plugin-artik5-bluetooth
 artik-plugin-artik5-fstab
 artik-plugin-artik5-audio
