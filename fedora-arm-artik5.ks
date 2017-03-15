@@ -6,4 +6,5 @@ artik-plugin-artik5-fstab
 artik-plugin-artik5-audio
 artik-plugin-artik5-wifi
 artik-plugin-artik5-usb
+artik-plugin-artik5-security
 %end
