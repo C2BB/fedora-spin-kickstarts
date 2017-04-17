@@ -32,6 +32,8 @@ artik-plugin-artik530-security
 artik-plugin-artik530-zram
 artik-plugin-artik530-zigbee
 
+artik-repos-artik530
+
 TomyGateway
 mqttsn
 
