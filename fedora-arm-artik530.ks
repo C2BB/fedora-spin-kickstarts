@@ -37,4 +37,6 @@ artik-repos-artik530
 TomyGateway
 mqttsn
 
+artik-ota
+
 %end
