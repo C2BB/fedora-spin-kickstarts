@@ -35,4 +35,6 @@ artik-plugin-artik710-license
 TomyGateway
 mqttsn
 
+artik-ota
+
 %end
