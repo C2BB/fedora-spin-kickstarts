@@ -4,4 +4,6 @@
 
 security-b2b-artik710s
 
+-artik-ota
+
 %end
