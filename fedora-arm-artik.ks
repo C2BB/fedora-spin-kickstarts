@@ -124,8 +124,7 @@ artik-plugin-usb-common
 artik-plugin-wifi-common
 
 zigbeed
-libartik-sdk-base
-libartik-sdk-zigbee
+libzigbee
 
 bluez
 bluez-hid2hci
