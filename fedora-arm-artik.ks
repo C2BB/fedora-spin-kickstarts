@@ -5,7 +5,7 @@ bootloader --disabled
 cmdline
 rootpw root
 
-part / --size=1400 --label=rootfs --fstype ext4
+part / --size=2000 --label=rootfs --fstype ext4
 
 services --enabled=ssh --disabled=network
 
